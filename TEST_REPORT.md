@@ -34,6 +34,33 @@ Untuk _widget test_, tes dilakukan dengan menggunakan _dependency_ bawaan bernam
 
 Sementara untuk _integration test_, diperlukan _dependency_ tambahan bernama `integration_test` dan `flutter_driver`. _Integration test_ di Flutter juga menggunakan _dependency_ `flutter_test`, sehingga cara pembuatannya mirip dengan _widget test_. Bedanya, proses _integration test_ berjalan langsung di perangkat pilihan (seperti _mobile_) secara utuh, sementara _widget test_ hanya dalam _virtual environment_ karena masih per individu `widget`. Maka dari itu, _integration test_ sering digunakan untuk menguji kelancaran atau performa suatu aplikasi secara otomatis layaknya pengguna asli.
 
+Berikut merupakan daftar tes yang dilakukan:
+
+1. Tes model `Favorites`  
+   File = test/models/favorites_test.dart  
+   Target = tambah dan kurangi `item` pada model `Favorites`  
+   Hasil = target berhasil tercapai
+   
+2. Tes halaman `home`  
+   File = test/home_test.dart  
+   Target = cari `ListView`, tes _scrolling_, tes interaksi _IconButton_ _favorite_    
+   Hasil = target berhasil tercapai
+   
+3. Tes halaman `favorites`  
+   File = test/favorites_test.dart  
+   Target = cari `ListView`, tes interaksi tombol hapus  
+   Hasil = target berhasil tercapai
+
+4. Tes kelancaran aplikasi  
+   File = integration_test/app_test.dart  
+   Target = tes tambah `item` ke `Favourites`, pindah ke halaman `Favourites`, dan tes hapus `item` dari `Favourites`  
+   Hasil = target berhasil tercapai
+
+5. Tes performa aplikasi  
+   File = integration_test/perf_test.dart  
+   Tujuan = tes `scrolling` ke bawah dan ke atas dengan cepat  
+   Hasil = data tes berhasil dikumpul
+
 ## Tantangan
 
 - Tidak dapat menambahkan `flutter_drive` dan `integration_test` melalui _command line_
